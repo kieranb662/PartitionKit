@@ -36,7 +36,8 @@ public struct HPart<Left, Right, Handle> where Left: View, Right: View, Handle: 
     /// Amount of time it takes before a gesture is recognized as a longPress, the precursor to the drag.
     var minimumLongPressDuration = 0.05
     var handleSize: CGSize = CGSize(width: 10, height: 75)
-    var pctSplit: CGFloat = 0.5
+    public var pctSplit: CGFloat = 0.5
+    var paddingFactor: CGFloat = 0.9
     
     // dragState and viewState are also taken directly froms Apples "Composing SwiftUI Gestures"
     @GestureState var dragState = DragState.inactive
@@ -92,11 +93,11 @@ public struct HPart<Left, Right, Handle> where Left: View, Right: View, Handle: 
         GeometryReader { (proxy: GeometryProxy) in
             HStack {
                 self.left
-                    .frame(width: 0.9*(self.pctSplit*proxy.frame(in: .local).width) + self.currentOffset)
+                    .frame(width: self.paddingFactor*(self.pctSplit*proxy.frame(in: .local).width) + self.currentOffset)
                 .animation(.linear)
                 Divider()
                 self.right
-                    .frame(width: 0.9*((1-self.pctSplit)*proxy.frame(in: .local).width) - self.currentOffset)
+                    .frame(width: self.paddingFactor*((1-self.pctSplit)*proxy.frame(in: .local).width) - self.currentOffset)
                     .animation(.linear)
             }.overlay(self.generateHandle(), alignment: .center)
         }
@@ -124,6 +125,21 @@ extension HPart: View where Left: View, Right: View, Handle: View {
         self.handle = handle()
     }
     
+    
+    /// # Horizontal Partition With Custom Handle
+    ///
+    /// - parameters:
+    ///    - pctSplit: The ratio of space the left takes up compared to the right. Use values between 0 and 1
+    ///    - left: Any type of View within a closure.
+    ///    - right: Any type of View within a closure
+    ///    - handle: Any type of View within a closure. The `Handle` is the view that the user will use to drag and resize the partitions.
+    @inlinable public init(pctSplit: CGFloat, @ViewBuilder left: () -> Left, @ViewBuilder right: () -> Right, @ViewBuilder handle: () -> Handle) {
+        self.pctSplit = pctSplit
+        self.left = left()
+        self.right = right()
+        self.handle = handle()
+    }
+    
 }
 
 
@@ -140,6 +156,23 @@ extension HPart where Left: View, Right: View, Handle == Capsule {
     /// - note
     ///  The `Handle` used here is a capsule that is taller than it is wide.
     @inlinable public init(@ViewBuilder left: () -> Left, @ViewBuilder right: () -> Right) {
+        self.left = left()
+        self.right = right()
+        self.handle = Capsule()
+    }
+    
+    
+    /// # Horizontal Partition With Default Handle
+    ///
+    /// - parameters:
+    ///    - pctSplit: The ratio of space the left takes up compared to the right. Use values between 0 and 1
+    ///    - left: Any type of View within a closure.
+    ///    - right: Any type of View within a closure
+    ///
+    /// - note
+    ///  The `Handle` used here is a capsule that is taller than it is wide.
+    @inlinable public init(pctSplit: CGFloat, @ViewBuilder left: () -> Left, @ViewBuilder right: () -> Right) {
+        self.pctSplit = pctSplit
         self.left = left()
         self.right = right()
         self.handle = Capsule()

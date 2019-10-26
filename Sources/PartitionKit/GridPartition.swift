@@ -45,8 +45,10 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where
     
     /// Amount of time it takes before a gesture is recognized as a longPress, the precursor to the drag.
     var minimumLongPressDuration = 0.05
+    /// Size of the `Handle`
     var handleSize: CGSize = CGSize(width: 40, height: 40)
-    var pctSplit: CGSize = CGSize(width: 0.5, height: 0.5)
+    public var pctSplit: CGSize = CGSize(width: 0.5, height: 0.5)
+    var paddingFactor: CGFloat = 0.9
     
     // dragState and viewState are also taken directly froms Apples "Composing SwiftUI Gestures"
     @GestureState var dragState = DragState.inactive
@@ -103,20 +105,20 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where
                 // Top
                 HStack {
                     self.topLeft
-                        .frame(width: 0.9*(self.pctSplit.width*proxy.frame(in: .local).width) + self.currentOffset.width)
+                        .frame(width: self.paddingFactor*(self.pctSplit.width*proxy.frame(in: .local).width) + self.currentOffset.width)
                     Divider()
                     self.topRight
-                        .frame(width: 0.9*((1-self.pctSplit.width)*proxy.frame(in: .local).width) - self.currentOffset.width)
-                }.frame(height: 0.9*(self.pctSplit.height*proxy.frame(in: .local).height) + self.currentOffset.height)
+                        .frame(width: self.paddingFactor*((1-self.pctSplit.width)*proxy.frame(in: .local).width) - self.currentOffset.width)
+                }.frame(height: self.paddingFactor*(self.pctSplit.height*proxy.frame(in: .local).height) + self.currentOffset.height)
                 Divider()
                 // Bottom
                 HStack {
                     self.bottomLeft
-                        .frame(width: 0.9*(self.pctSplit.width*proxy.frame(in: .local).width) + self.currentOffset.width)
+                        .frame(width: self.paddingFactor*(self.pctSplit.width*proxy.frame(in: .local).width) + self.currentOffset.width)
                     Divider()
                     self.bottomRight
-                        .frame(width: 0.9*((1-self.pctSplit.width)*proxy.frame(in: .local).width) - self.currentOffset.width)
-                }.frame(height: 0.9*((1-self.pctSplit.height)*proxy.frame(in: .local).height) - self.currentOffset.height)
+                        .frame(width: self.paddingFactor*((1-self.pctSplit.width)*proxy.frame(in: .local).width) - self.currentOffset.width)
+                }.frame(height: self.paddingFactor*((1-self.pctSplit.height)*proxy.frame(in: .local).height) - self.currentOffset.height)
             }.overlay(self.generateHandle(), alignment: .center)
         }
     }
@@ -140,6 +142,24 @@ extension GridPart: View where TopLeft:View, TopRight: View, BottomLeft: View, B
         self.bottomRight = bottomRight()
         self.handle = handle()
     }
+    
+    
+    /// # GridPartition With Custom Handle
+    /// - parameters:
+    ///   - pctSplit The inital percentage size each partition should take up
+    ///   - topLeft Any type of View within a closure.
+    ///   - topRight Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///   - handle Any type of View within a closure, This is the view that the user will drag to resize all the others.
+    @inlinable public init(pctSplit: CGSize, @ViewBuilder topLeft: () -> TopLeft, @ViewBuilder topRight: () -> TopRight,@ViewBuilder  bottomLeft: () -> BottomLeft, @ViewBuilder bottomRight: () -> BottomRight, @ViewBuilder handle: () -> Handle ) {
+        self.pctSplit = pctSplit
+        self.topLeft = topLeft()
+        self.topRight = topRight()
+        self.bottomLeft = bottomLeft()
+        self.bottomRight = bottomRight()
+        self.handle = handle()
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
@@ -157,6 +177,27 @@ extension GridPart where Handle == CrossHair, TopLeft:View, TopRight: View, Bott
     ///
     /// Uses the default `CrossHair` as the `Handle`.
     @inlinable public init(@ViewBuilder topLeft: () -> TopLeft, @ViewBuilder topRight: () -> TopRight,@ViewBuilder  bottomLeft: () -> BottomLeft, @ViewBuilder bottomRight: () -> BottomRight) {
+        self.topLeft = topLeft()
+        self.topRight = topRight()
+        self.bottomLeft = bottomLeft()
+        self.bottomRight = bottomRight()
+        self.handle = CrossHair()
+    }
+    
+    
+    /// # GridPartition With Crosshair Handle
+    /// A slight convienence because you do not have to specify a handle, the default  `CrossHair` is used instead.
+    ///
+    /// - parameters:
+    ///   - pctSplit The inital percentage size each partition should take up
+    ///   - topLeft Any type of View within a closure.
+    ///   - topRight Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///
+    /// Uses the default `CrossHair` as the `Handle`.
+    @inlinable public init(pctSplit: CGSize, @ViewBuilder topLeft: () -> TopLeft, @ViewBuilder topRight: () -> TopRight,@ViewBuilder  bottomLeft: () -> BottomLeft, @ViewBuilder bottomRight: () -> BottomRight) {
+        self.pctSplit = pctSplit    
         self.topLeft = topLeft()
         self.topRight = topRight()
         self.bottomLeft = bottomLeft()

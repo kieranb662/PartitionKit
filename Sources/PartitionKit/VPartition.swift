@@ -37,7 +37,8 @@ public struct VPart<Top, Bottom, Handle> where Top: View, Bottom: View, Handle: 
     /// Amount of time it takes before a gesture is recognized as a longPress, the precursor to the drag.
     var minimumLongPressDuration = 0.05
     var handleSize: CGSize = CGSize(width: 75, height: 10)
-    var pctSplit: CGFloat = 0.5
+    public var pctSplit: CGFloat = 0.5
+    var paddingFactor: CGFloat = 0.9
     
     // dragState and viewState are also taken directly froms Apples "Composing SwiftUI Gestures"
     @GestureState var dragState = DragState.inactive
@@ -47,6 +48,8 @@ public struct VPart<Top, Bottom, Handle> where Top: View, Bottom: View, Handle: 
     var currentOffset: CGFloat {
         viewState.height+dragState.translation.height
     }
+    
+
     
     
     /// Creates the `Handle` and adds the drag gesture to it.
@@ -93,11 +96,11 @@ public struct VPart<Top, Bottom, Handle> where Top: View, Bottom: View, Handle: 
         GeometryReader { (proxy: GeometryProxy) in
             VStack {
                 self.top
-                    .frame(height: 0.9*(self.pctSplit*proxy.frame(in: .local).height) + self.currentOffset)
+                    .frame(height: self.paddingFactor*(self.pctSplit*proxy.frame(in: .local).height) + self.currentOffset)
                 .animation(.linear)
                 Divider()
                 self.bottom
-                    .frame(height: 0.9*((1-self.pctSplit)*proxy.frame(in: .local).height) - self.currentOffset)
+                    .frame(height: self.paddingFactor*((1-self.pctSplit)*proxy.frame(in: .local).height) - self.currentOffset)
                     .animation(.linear)
             }.overlay(self.generateHandle(), alignment: .center)
         }
@@ -125,6 +128,21 @@ extension VPart: View where Top: View, Bottom: View, Handle: View {
         self.handle = handle()
     }
     
+    
+    /// # Vertical Partition With Custom Handle
+    ///
+    /// - parameters:
+    ///    - pctSplit: The ratio of space the top takes up compared to the bottom. Use between 0 and 1.
+    ///    - top: Any type of View within a closure.
+    ///    - bottom: Any type of View within a closure
+    ///    - handle: Any type of View within a closure. The `Handle` is the view that the user will use to drag and resize the partitions.
+    @inlinable public init(pctSplit: CGFloat, @ViewBuilder top: () -> Top, @ViewBuilder bottom: () -> Bottom, @ViewBuilder handle: () -> Handle) {
+        self.pctSplit = pctSplit
+        self.top = top()
+        self.bottom = bottom()
+        self.handle = handle()
+    }
+    
 }
 
 
@@ -142,6 +160,24 @@ extension VPart where Top: View, Bottom: View, Handle == Capsule {
     /// - note
     ///  The `Handle` used here is a `Capsule` that is wider than it is tall.
     @inlinable public init(@ViewBuilder top: () -> Top, @ViewBuilder bottom: () -> Bottom) {
+        self.top = top()
+        self.bottom = bottom()
+        self.handle = Capsule()
+    }
+    
+    
+    
+    /// # Vertical Partition With Default Handle
+    ///
+    /// - parameters:
+    ///    - pctSplit: The ratio of space the top takes up compared to the bottom. Use between 0 and 1.
+    ///    - top: Any type of View within a closure.
+    ///    - bottom: Any type of View within a closure
+    ///
+    /// - note
+    ///  The `Handle` used here is a `Capsule` that is wider than it is tall.
+    @inlinable public init(pctSplit: CGFloat, @ViewBuilder top: () -> Top, @ViewBuilder bottom: () -> Bottom) {
+        self.pctSplit = pctSplit
         self.top = top()
         self.bottom = bottom()
         self.handle = Capsule()
