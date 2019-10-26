@@ -35,13 +35,13 @@ import SwiftUI
 ///
 /// Optionally the user may specify a specific view to be used as the `Handle` otherwise the View `CrossHair` will be used as default
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
-public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle>: View where TopLeft: View , TopRight: View, BottomLeft: View, BottomRight:View, Handle: View {
+public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where TopLeft: View , TopRight: View, BottomLeft: View, BottomRight:View, Handle: View {
     
-    var topLeft: TopLeft
-    var topRight: TopRight
-    var bottomLeft: BottomLeft
-    var bottomRight: BottomRight
-    var handle: Handle
+    public var topLeft: TopLeft
+    public var topRight: TopRight
+    public var bottomLeft: BottomLeft
+    public var bottomRight: BottomRight
+    public var handle: Handle
     
     /// Amount of time it takes before a gesture is recognized as a longPress, the precursor to the drag.
     var minimumLongPressDuration = 0.05
@@ -111,7 +111,7 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle>: View
     
     
     // MARK: Money Shot
-    var body: some View {
+    public var body: some View {
         GeometryReader { (proxy: GeometryProxy) in
             VStack {
                 // Top
@@ -137,7 +137,7 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle>: View
 }
 
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
-public extension GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where Handle == CrossHair, TopLeft:View, TopRight: View, BottomLeft: View, BottomRight: View {
+extension GridPart: View where Handle == CrossHair, TopLeft:View, TopRight: View, BottomLeft: View, BottomRight: View {
     
     
     /// # GridPartition With Crosshair Handle
