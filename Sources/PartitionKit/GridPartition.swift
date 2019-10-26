@@ -58,20 +58,6 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where
                height: viewState.height+dragState.translation.height)
     }
     
-    /// # GridPartition With Custom Handle
-    /// - parameters:
-    ///   - topLeft Any type of View within a closure.
-    ///   - topRight Any type of View within a closure.
-    ///   - bottomLeft Any type of View within a closure.
-    ///   - bottomLeft Any type of View within a closure.
-    ///   - handle Any type of View within a closure, This is the view that the user will drag to resize all the others.
-    @inlinable public init(@ViewBuilder topLeft: () -> TopLeft, @ViewBuilder topRight: () -> TopRight,@ViewBuilder  bottomLeft: () -> BottomLeft, @ViewBuilder bottomRight: () -> BottomRight, @ViewBuilder handle: () -> Handle ) {
-        self.topLeft = topLeft()
-        self.topRight = topRight()
-        self.bottomLeft = bottomLeft()
-        self.bottomRight = bottomRight()
-        self.handle = handle()
-    }
     
     /// Creates the `Handle` and adds the drag gesture to it.
     func generateHandle() -> some View {
@@ -136,8 +122,28 @@ public struct GridPart<TopLeft, TopRight, BottomLeft, BottomRight, Handle> where
     }
 }
 
+
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
-extension GridPart: View where Handle == CrossHair, TopLeft:View, TopRight: View, BottomLeft: View, BottomRight: View {
+extension GridPart: View where TopLeft:View, TopRight: View, BottomLeft: View, BottomRight: View, Handle: View {
+    
+    /// # GridPartition With Custom Handle
+    /// - parameters:
+    ///   - topLeft Any type of View within a closure.
+    ///   - topRight Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///   - bottomLeft Any type of View within a closure.
+    ///   - handle Any type of View within a closure, This is the view that the user will drag to resize all the others.
+    @inlinable public init(@ViewBuilder topLeft: () -> TopLeft, @ViewBuilder topRight: () -> TopRight,@ViewBuilder  bottomLeft: () -> BottomLeft, @ViewBuilder bottomRight: () -> BottomRight, @ViewBuilder handle: () -> Handle ) {
+        self.topLeft = topLeft()
+        self.topRight = topRight()
+        self.bottomLeft = bottomLeft()
+        self.bottomRight = bottomRight()
+        self.handle = handle()
+    }
+}
+
+@available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
+extension GridPart where Handle == CrossHair, TopLeft:View, TopRight: View, BottomLeft: View, BottomRight: View {
     
     
     /// # GridPartition With Crosshair Handle
