@@ -111,7 +111,7 @@ extension HPart: View where Left: View, Right: View, Handle: View {
 
 
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
-extension HPart: View where Left: View, Right: View, Handle == Capsule {
+extension HPart where Left: View, Right: View, Handle == Capsule {
     
     
     /// # Horizontal Partition With Default Handle
@@ -121,7 +121,7 @@ extension HPart: View where Left: View, Right: View, Handle == Capsule {
     ///    - right: Any type of View within a closure
     ///
     /// - note
-    ///  The `Handle` used here is a capsule that is taller than it is wide. 
+    ///  The `Handle` used here is a capsule that is taller than it is wide.
     @inlinable public init(@ViewBuilder left: () -> Left, @ViewBuilder right: () -> Right) {
         self.left = left()
         self.right = right()
