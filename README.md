@@ -80,8 +80,76 @@ HPart(left: {
 
 ## Examples 
 
+Copy and Paste this I have added Named pictures for how the views should look, Im using dark mode so light mode colors may look different. 
+
+```
+import SwiftUI
+import PartitionKit
 
 
+
+struct ContentView: View {
+    var vExample: some View {
+        VPart(top: {
+            RoundedRectangle(cornerRadius: 25).foregroundColor(.purple)
+        }) {
+            Circle().foregroundColor(.yellow)
+        }
+    }
+    
+    var hExample: some View {
+        HPart(left: {
+            RoundedRectangle(cornerRadius: 10).foregroundColor(.blue)
+        }) {
+            Circle().foregroundColor(.orange)
+        }
+    }
+    
+    var nestedExample: some View {
+        VPart(top: {
+            hExample
+        }) {
+            vExample
+        }
+    }
+    
+    var gridExample: some View {
+        GridPart(topLeft: {
+            RoundedRectangle(cornerRadius: 25).foregroundColor(.purple)
+        }, topRight: {
+            Circle().foregroundColor(.yellow)
+        }, bottomLeft: {
+            Circle().foregroundColor(.green)
+        }) {
+            RoundedRectangle(cornerRadius: 25).foregroundColor(.blue)
+        }
+    }
+    
+    var nestedGridsExample: some View {
+        GridPart(topLeft: {
+            gridExample
+        }, topRight: {
+            gridExample
+        }, bottomLeft: {
+            gridExample
+        }) {
+            gridExample
+        }
+    }
+    
+    var body: some View {
+        nestedExample
+        
+    }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+```
 
 
 
