@@ -35,7 +35,7 @@ PartitionKit as a default requires the SwiftUI Framework to be operational, as s
 
 1. Decide on what view you would like to have on `Top`, which you would like to have on the `Bottom` and optionally a `Handle` to be used to drag the partitions to different sizes.
 2. Do This 
-````
+```` swift
 VPart(top: {
     MyTopView()
     }, bottom: {
