@@ -20,7 +20,7 @@ PartitionKit as a default requires the SwiftUI Framework to be operational, as s
 * watchOS 6 or Greater 
 
 
-## How To Add To You Project
+## How To Add To Your Project
 
 1. Snag that URL from the github repo 
 2. In Xcode -> File -> Swift Packages -> Add Package Dependencies 
