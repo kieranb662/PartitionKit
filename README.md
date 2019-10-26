@@ -84,6 +84,10 @@ HPart(left: {
 
 Copy and Paste this I have added Named pictures for how the views should look, Im using dark mode so light mode colors may look different. 
 
+| HPart                   | VPart                   | GridPart                      | NestGrids                              | Mixed                       |
+|-------------------------|-------------------------|-------------------------------|----------------------------------------|-----------------------------|
+| ![HPart](/hExample.png) | ![VPart](/vExample.png) | ![GridPart](/gridExample.png) | ![Nested Grid](/nestedGridExample.png) | ![Mixed](/nestedExample.png) |
+
 ``` Swift
 import SwiftUI
 import PartitionKit
