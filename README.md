@@ -6,7 +6,7 @@ What is PartitionKit?
 - It is the solution to the need for composable and dynamically sized user interface content in SwiftUI. 
 - also the first piece of software I have ever made into a library so please be gentle(both with use cases and with my heart).
 
-What is **not** PartitionKit?
+What PartitionKit is **not** ?
 - PartitionKit is not a means to work with an form of stored data, this is not for partitioning hard drives or any other type of formattable data drive. 
 
 
