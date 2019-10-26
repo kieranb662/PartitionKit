@@ -9,7 +9,24 @@ import Foundation
 import SwiftUI
 
 
-
+/// # Horizontal Partition
+///
+///  Used to create resizable views that share a total width,
+///  Takes 3 generic arguments to prevent users from needing to wrap content views within an  `AnyView`
+///
+///   - note
+///   the syntax looks something like this, So if closures are still kind of new to you just think that you are sending a letter(`View`) to somebody  and it needs an Envelope(`{}`) to get there.
+///
+///   ```
+///   HPart(left: {
+///       Rectangle()
+///   }, right: {
+///       Circle()
+///  }) {
+///     Capsule()
+///  }
+///  ```
+///
 @available(iOS 13.0, macOS 10.15, watchOS 6.0 , tvOS 13.0, *)
 public struct HPart<Left, Right, Handle> where Left: View, Right: View, Handle: View {
     public var left: Left
