@@ -35,7 +35,7 @@ PartitionKit as a default requires the SwiftUI Framework to be operational, as s
 
 1. Decide on what view you would like to have on `Top`, which you would like to have on the `Bottom` and optionally a `Handle` to be used to drag the partitions to different sizes.
 2. Do This 
-```` swift
+```` Swift
 VPart(top: {
     MyTopView()
     }, bottom: {
@@ -49,7 +49,7 @@ VPart(top: {
 
 1. Decide on what view you would like to have on `Left`, which you would like to have on the `Right` and optionally a `Handle` to be used to drag the partitions to different sizes.
 2. Do This 
-````
+```` Swift
 HPart(left: {
     MyLeftView()
     }, right: {
@@ -63,7 +63,7 @@ HPart(left: {
 
 1. Decide on what Views will go in each corner `TopLeft`, `TopRight`, `BottomLeft`, `BottomRight` and optionally a `Handle` for the user to drag and resize the views with. 
 2. Do this 
-````
+```` Swift
     GridPart(topLeft: {
         MyTopLeftView()
         }, topRight: {
@@ -84,7 +84,7 @@ HPart(left: {
 
 Copy and Paste this I have added Named pictures for how the views should look, Im using dark mode so light mode colors may look different. 
 
-```
+``` Swift
 import SwiftUI
 import PartitionKit
 
