@@ -12,7 +12,7 @@ import SwiftUI
 /// # Grid Partition
 /// Creates a flexible container view with four separate partitions and a draggable `Handle` in the center.
 /// Don't be afraid of the syntax, The View takes at minimum four closures each containing some type that conforms to `View`.
-/// The reason that 4 separate generic arguments are used is so that the user can avoid wrapping everything in an `AnyView`.
+/// The reason that 5 separate generic arguments are used is so that the user can avoid wrapping everything in an `AnyView`.
 ///
 /// - note
 /// the syntax looks something like this, So if closures are still kind of new to you just think that you are sending a letter(`View`) to somebody  and it needs an Envelope(`{}`) to get there.
@@ -147,6 +147,8 @@ extension GridPart where Handle == CrossHair, TopLeft:View, TopRight: View, Bott
     
     
     /// # GridPartition With Crosshair Handle
+    /// A slight convienence because you do not have to specify a handle, the default  `CrossHair` is used instead.
+    ///
     /// - parameters:
     ///   - topLeft Any type of View within a closure.
     ///   - topRight Any type of View within a closure.
