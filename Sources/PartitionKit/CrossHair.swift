@@ -48,6 +48,7 @@ public struct CrossHair: View {
                     self.line(angle: 270, proxy: proxy)
                 }.offset(CGSize(width: 0, height: proxy.frame(in: .local).height/2))
             })
+                .contentShape(Circle())
             
             
         }

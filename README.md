@@ -75,6 +75,9 @@ HPart(left: {
 }
 ````
 
+
+
+
 ## Examples 
 
 
@@ -82,5 +85,9 @@ HPart(left: {
 
 
 
-
+## Todo 
+* Add in constraints so that partitions will not cause negative frame values that invert the views when the handle is dragged beyond the frame of the container 
+* Add more customizability to initial layouts 
+* Add a `List` Style grid collection layout that can be initiated with a list of Identifiable data elements. 
+* General cleanup, some stuff was not meant to be left in, i will find it at some point. 
 
