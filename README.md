@@ -1,5 +1,7 @@
 # Partition Kit
 
+![grid](/gridExample.png)
+
 What is PartitionKit? 
 - It is the solution to the need for composable and dynamically sized user interface content in SwiftUI. 
 - also the first piece of software I have ever made into a library so please be gentle(both with use cases and with my heart).
