@@ -1,4 +1,5 @@
 # Partition Kit
+Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b)!
 
 ![grid](/nestedGrid.gif)
 
