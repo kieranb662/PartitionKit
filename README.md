@@ -1,6 +1,8 @@
 # Partition Kit
 Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b)!
 
+If you liked this library then you have got to check out my follow up [Interaction](https://github.com/kieranb662/Interact)
+
 ![grid](/nestedGrid.gif)
 
 What is PartitionKit? 
