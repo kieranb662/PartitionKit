@@ -1,5 +1,5 @@
 # Partition Kit
-Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b)!
+Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b) and in [5 iOS libraries to enhance your app](https://medium.com/better-programming/5-ios-libraries-to-enhance-your-app-17ae7ed350db)!
 
 If you liked this library then you have got to check out my follow up [Interaction](https://github.com/kieranb662/Interact)
 
