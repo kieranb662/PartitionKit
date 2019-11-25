@@ -37,6 +37,10 @@ PartitionKit as a default requires the SwiftUI Framework to be operational, as s
 3.  Paste the URL Into the box
 4. Specify the minimum version number (This is new so 0.0.0 and greater will work).
 
+## Less Than 2 Minute Tutorial Video
+
+[![Tutorial Video: How To Use PartitionKit](https://img.youtube.com/vi/RSnEevQcqjk/1000.jpg)](https://www.youtube.com/watch?v=RSnEevQcqjk)
+
 
 ## How To Use 
 
