@@ -35,7 +35,7 @@ PartitionKit as a default requires the SwiftUI Framework to be operational, as s
 1. Snag that URL from the github repo 
 2. In Xcode -> File -> Swift Packages -> Add Package Dependencies 
 3.  Paste the URL Into the box
-4. Specify the minimum version number (This is new so 0.0.0 and greater will work).
+4. Specify the minimum version number (This is new so 1.0.0 and greater will work).
 
 ## Less Than 2 Minute Tutorial Video
 
