@@ -1,10 +1,5 @@
 # Partition Kit
 
-I am currenty unemployed and have received no responses to any of my applications, I would like to continue making libraries and components to share with everyone but will need your support. Please consider donating to help a fellow developer help you.
-<a href="https://www.patreon.com/bePatron?u=27262269" data-patreon-widget-type="become-patron-button">Become a Patron!</a>
-
-I am currently for hire and have a huge library of responsive components not released anywhere, hire me and you get access. If interested send an email to kb6627500@gmail.com .
-
 Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b) and in [5 iOS libraries to enhance your app](https://medium.com/better-programming/5-ios-libraries-to-enhance-your-app-17ae7ed350db)!
 
 
