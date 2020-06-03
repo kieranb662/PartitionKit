@@ -1,6 +1,6 @@
 # Partition Kit
 
-Im currently looking for full time employment, checkout my [linkedin profile](https://www.linkedin.com/in/kieran-brown-56a0a31a3/). If interested call or text me at 8456627500. 
+
 
 Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b) and in [5 iOS libraries to enhance your app](https://medium.com/better-programming/5-ios-libraries-to-enhance-your-app-17ae7ed350db)!
 
