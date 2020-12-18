@@ -1,6 +1,6 @@
 # Partition Kit
 
-
+![partition kit logo](https://github.com/kieranb662/PartitionKit/blob/master/partition-kit-logo.png)
 
 Recently Featured In [Top 10 Trending Android and iOS Libraries in October](https://medium.com/better-programming/top-10-trending-android-and-ios-libraries-in-october-e7dd18f8b75b) and in [5 iOS libraries to enhance your app](https://medium.com/better-programming/5-ios-libraries-to-enhance-your-app-17ae7ed350db)!
 
