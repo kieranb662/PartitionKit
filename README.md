@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=kieranb662&project=PartitionKit&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 # Partition Kit
 
 ![partition kit logo](https://github.com/kieranb662/PartitionKit/blob/master/partition-kit-logo.png)
